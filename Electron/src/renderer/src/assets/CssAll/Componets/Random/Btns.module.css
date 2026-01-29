@@ -1,0 +1,211 @@
+/* Btn1 css start */
+.containerOfBtn1 {
+  position: relative;
+  padding: 12px 28px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.4s ease-out;
+  box-shadow:
+    0 2px 4px rgba(0, 0, 0, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  overflow: hidden;
+}
+
+.greenVariantOfBtn1 {
+  background: linear-gradient(180deg, var(--mn-00) 0%, var(--mn-01) 50%, var(--mn-02) 100%);
+}
+
+.beigeVariantOfBtn1 {
+  background: linear-gradient(180deg, var(--mn-05) 0%, var(--mn-06) 50%, var(--mn-07) 100%);
+}
+
+.borderLayerOfBtn1 {
+  position: absolute;
+  top: 1px;
+  left: 1px;
+  right: 1px;
+  bottom: 1px;
+  border-radius: 5px;
+  border: 1px solid var(--cl-02);
+  mix-blend-mode: overlay;
+  pointer-events: none;
+}
+
+.innerGlowOfBtn1 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 5px;
+  box-shadow: inset 0 0 8px var(--cl-00);
+  pointer-events: none;
+}
+
+.textOfBtn1 {
+  position: relative;
+  color: var(--cl-03);
+  font-family: 'Segoe UI', system-ui;
+  font-weight: 600;
+  font-size: 1.1em;
+  letter-spacing: 0.03em;
+  text-shadow: 0 1px 1px var(--cl-00);
+  transition: transform 0.2s ease;
+}
+
+.shineOfBtn1 {
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    45deg,
+    rgba(255, 255, 255, 0) 45%,
+    var(--cl-00) 50%,
+    rgba(255, 255, 255, 0) 55%
+  );
+  opacity: 0.3;
+  transition: all 0.4s ease;
+  pointer-events: none;
+}
+
+.containerOfBtn1:hover:not(.disabledOfBtn1) {
+  scale: 1.1;
+  transform: translateY(-1px);
+  box-shadow:
+    0 4px 8px rgba(0, 0, 0, 0.15),
+    inset 0 1px 0 var(--cl-00);
+}
+
+.containerOfBtn1:hover:not(.disabledOfBtn1) .shineOfBtn1 {
+  transform: translate(25%, 25%);
+}
+
+.containerOfBtn1:active:not(.disabledOfBtn1) {
+  transform: translateY(1px);
+  box-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.1),
+    inset 0 1px 1px var(--cl-03);
+}
+
+.disabledOfBtn1 {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.spinnerOfBtn1 {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  border: 2px solid var(--cl-02);
+  border-radius: 50%;
+  border-top-color: transparent;
+  animation: spinOfBtn1 0.8s linear infinite;
+}
+
+@keyframes spinOfBtn1 {
+  to {
+    transform: rotate(360deg);
+  }
+}
+/* Btn1 css ending */
+/* /////////////////////// */
+/* Btn2 css start */
+.btnOfBtn2.containerOfBtn2 {
+  padding: 12px 24px 12px 18px;
+  border: none;
+  border-radius: 8px;
+  background-color: var(--mn-01);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* Icon container */
+.iconWrapperOfBtn2 {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 2px solid var(--cl-00);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(var(--cl-00-rgb), 0.1);
+}
+
+/* Icon styling */
+.iconOfBtn2 {
+  width: 16px;
+  height: 16px;
+  object-fit: contain;
+}
+
+.defaultIconOfBtn2 {
+  color: var(--cl-00);
+  font-size: 14px;
+}
+
+/* Shared styles from Btn1 */
+.borderLayerOfBtn2 {
+  position: absolute;
+  top: 1px;
+  left: 1px;
+  right: 1px;
+  bottom: 1px;
+  border-radius: 7px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  pointer-events: none;
+}
+
+.textOfBtn2 {
+  color: var(--cl-00);
+  font-family: 'Arial', sans-serif;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  position: relative;
+  z-index: 1;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.shineOfBtn2 {
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    45deg,
+    rgba(255, 255, 255, 0) 45%,
+    rgba(255, 255, 255, 0.3) 50%,
+    rgba(255, 255, 255, 0) 55%
+  );
+  transition: all 0.4s ease;
+  pointer-events: none;
+}
+
+/* Hover effects matching Btn1 */
+.btnOfBtn2.containerOfBtn2:hover:not(.disabledOfBtn2) {
+  scale: 1.1;
+  background-color: var(--mn-02);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.btnOfBtn2.containerOfBtn2:hover:not(.disabledOfBtn2) .shineOfBtn2 {
+  transform: translate(25%, 25%);
+}
+
+.btnOfBtn2.containerOfBtn2:active:not(.disabledOfBtn2) {
+  transform: scale(0.98);
+}
+
+.disabledOfBtn2 {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+/* Btn2 css ending */

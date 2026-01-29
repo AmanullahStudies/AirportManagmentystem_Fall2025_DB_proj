@@ -1,0 +1,42 @@
+appId: hissab.tracker.1
+productName: hissab-tracker
+directories:
+  buildResources: build
+files:
+  - out/**
+  - '!**/.vscode/*'
+  - '!src/*'
+  - '!electron.vite.config.{js,ts,mjs,cjs}'
+  - '!{.eslintignore,.eslintrc.cjs,.prettierignore,.prettierrc.yaml,dev-app-update.yml,CHANGELOG.md,README.md}'
+  - '!{.env,.env.*,.npmrc,pnpm-lock.yaml}'
+  - node_modules/better-sqlite3/**  # ⬅️ Include better-sqlite3 explicitly
+asarUnpack:
+  - node_modules/better-sqlite3/**  # ⬅️ Ensure it's unpacked for Windows
+  - resources/**
+win:
+  executableName: hissab-tracker
+  icon: build/icon.ico
+  target:
+    - nsis  # ⬅️ Use NSIS installer for proper setup
+nsis:
+  artifactName: ${name}-${version}-setup.${ext}
+  shortcutName: ${productName}
+  uninstallDisplayName: ${productName}
+  createDesktopShortcut: always
+  installerIcon: build/icon.ico
+  uninstallerIcon: build/icon.ico
+linux:
+  target:
+    - AppImage
+    - snap
+    - deb
+  maintainer: electronjs.org
+  category: Utility
+  icon: build/icon.png
+npmRebuild: true  # ⬅️ Ensure rebuilding native modules for the target OS
+extraResources:
+  - from: node_modules/better-sqlite3/build/Release
+    to: app.asar.unpacked/node_modules/better-sqlite3/build/Release  # ⬅️ Ensure correct binary is packaged
+publish:
+  provider: generic
+  url: https://example.com/auto-updates

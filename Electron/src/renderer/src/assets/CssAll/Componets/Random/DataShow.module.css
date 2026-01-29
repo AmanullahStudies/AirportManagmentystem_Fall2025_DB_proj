@@ -1,0 +1,337 @@
+/* ===== Table Container CSS Start ===== */
+
+
+.myTableContainer {
+  background-color: var(--cl-03);
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  max-width: 100%;
+  /* Remove overflow-x: auto from here */
+}
+
+.myDataWrap {
+  background-color: var(--cl-03);
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  overflow-x: auto; /* Enable horizontal scrolling only for this div */
+  max-width: 100%;
+  /* min-width: fit-content;  */
+}
+
+.myTableHeader {
+  display: grid;
+  grid-template-columns: repeat(
+    var(--column-count),
+    minmax(200px, 1fr)
+  ); /* Use a fixed number of columns */
+  padding: 12px 0;
+  font-size: 16px;
+  font-weight: 600;
+  text-transform: uppercase;
+  border-bottom: 2px solid var(--cl-02);
+  min-width: fit-content; /* Ensure the header expands to fit its content */
+}
+
+.myTableCellH {
+  padding: 12px 16px;
+  color: var(--mn-00);
+  font-size: 20px;
+  border-radius: 6px;
+  text-align: center;
+  min-width: 200px; /* Ensure each header cell has a minimum width */
+}
+
+.myTableCellBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 180px;
+  border-right: 2px solid var(--mn-04);
+  border-radius: 6px;
+  border-left: 2px solid var(--mn-04);
+}
+.myTableCell {
+  min-width: 200px;
+  border-right: 2px solid var(--mn-04);
+  border-radius: 6px;
+  border-left: 2px solid var(--mn-04);
+}
+/* Full content view on hover */
+.cellContentWrapper {
+  position: relative; /* Keep the wrapper relative for positioning the fullContentDiv */
+}
+.cellContentWrapperreal {
+  padding: 6px;
+  padding-top: 10px;
+  font-size: 18px;
+  text-align: left;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  margin: 0px 10px;
+}
+.cellContent {
+  display: inline-block;
+  max-width: 200px; /* Adjust this as per your design */
+  /* overflow: hidden; */
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.fullContentDiv {
+  display: none;
+  position: absolute;
+  top: -135%; /* Move it above the cell */
+  left: 0; /* Align it with the left side of the cell */
+  white-space: nowrap;
+  background-color: var(--cl-04);
+  color: var(--cl-00);
+  padding: 15px 10px;
+  border-radius: 5px;
+  z-index: 1000;
+  max-width: 400px;
+  width: auto; /* Allow the tooltip to expand based on content */
+  border: 2px solid red; /* Temporary for debugging */
+  transform: translateY(-5px); /* Small offset for cleaner look */
+  text-wrap: no-wrap;
+}
+
+/* Show the fullContentDiv when the cell is hovered */
+.cellContentWrapper:hover .fullContentDiv {
+  display: block; /* Show it when hovered */
+  transform: translateY(0); /* Reset translateY for smooth appearance */
+}
+
+/* Optional: Adjust the arrow effect */
+.fullContentDiv::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 5px solid var(--cl-04); /* Arrow pointing down */
+}
+
+.myTableRow {
+  color: var(--cl-00);
+  font-family: 'UbuntuB', Courier, monospace;
+  display: grid;
+  grid-template-columns: repeat(
+    var(--column-count),
+    minmax(200px, 1fr)
+  ); /* Match the header's grid layout */
+  padding: 10px 0;
+  align-items: center;
+  border-bottom: 1px solid var(--cl-02);
+  transition: background-color 0.3s ease;
+  min-width: fit-content; /* Ensure the row expands to fit its content */
+}
+
+.myTableRow:nth-child(even) {
+  background-color: var(--cl-04);
+}
+
+.myTableRow:hover {
+  color: var(--cl-04);
+  background-color: var(--mn-01);
+  border-radius: 12px;
+  -webkit-border-radius: 12px;
+  -moz-border-radius: 12px;
+  -ms-border-radius: 12px;
+  -o-border-radius: 12px;
+}
+
+/* ===== Pagination Styles Start ===== */
+.myPagination {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+  color: var(--cl-00);
+}
+
+.myPagination select,
+.myPagination button {
+  padding: 6px 12px;
+  background-color: var(--cl-02);
+  border: 1px solid var(--cl-02);
+  border-radius: 4px;
+  color: var(--cl-00);
+  font-size: 14px;
+}
+
+.myPagination select {
+  background-color: var(--cl-02);
+}
+
+.myPagination select:focus,
+.myPagination button:focus {
+  outline: none;
+  border-color: var(--mn-00);
+}
+
+.myPagination button:disabled {
+  background-color: var(--cl-04);
+  cursor: not-allowed;
+}
+/* ===== Pagination Styles End ===== */
+/* Random btns on top close column etc css start */
+.headerWithClose {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.closeIcon {
+  font-size: 16px;
+  color: red;
+  margin-left: 8px;
+  opacity: 0;
+  cursor: pointer;
+  transition: opacity 0.2s ease-in-out;
+}
+
+.myTableCellH:hover .closeIcon {
+  opacity: 1;
+}
+
+.recoveryBar {
+  display: flex;
+  justify-content: flex-start;
+  gap: 12px;
+  margin-bottom: 12px;
+  margin-left: 10px;
+}
+
+.recoveryBtn {
+  background-color: var(--mn-01);
+  border: none;
+  color: var(--cl-00);
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.recoveryBtn:hover {
+  background-color: var(--mn-00);
+}
+
+/* Random btns on top close column etc css End */
+/* Detailings comp css start */
+.detailOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  backdrop-filter: blur(2px);
+}
+
+.detailBox {
+  width: 75vw;
+  height: 75vh;
+  background-color: var(--cl-03);
+  color: var(--cl-00);
+  border-radius: 14px;
+  overflow-y: auto;
+  padding: 20px;
+  position: relative;
+  box-shadow: 0 0 10px var(--cl-01);
+  font-family: 'UbuntuB', sans-serif;
+}
+
+.detailHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.closeBtn {
+  cursor: pointer;
+  font-size: 1.5rem;
+  color: var(--mn-06); /* reddish beige tone */
+  font-weight: bold;
+  padding: 0 10px;
+}
+
+.detailTitle {
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: var(--cl-00);
+}
+
+.detailContent {
+  padding-right: 10px;
+}
+
+.detailRow {
+  margin-bottom: 15px;
+  display: flex;
+  gap: 10px;
+  font-size: 1rem;
+  border-bottom: 1px solid var(--cl-02);
+  padding-bottom: 5px;
+}
+
+.detailLabel {
+  min-width: 150px;
+  font-weight: bold;
+  color: var(--mn-05); /* beige */
+}
+
+.detailValue {
+  flex: 1;
+  color: var(--cl-00);
+  word-break: break-word;
+}
+
+.actionsBlock {
+  margin-top: 20px;
+}
+
+.actionLabel {
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: var(--mn-00); /* bright green */
+}
+
+.actionButtons {
+  display: flex;
+  gap: 10px;
+}
+
+.detailBtn {
+  background: var(--mn-01); /* primary green */
+  border: none;
+  padding: 8px 16px;
+  border-radius: 8px;
+  color: var(--cl-00);
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.2s;
+}
+
+.detailBtn:hover {
+  background: var(--mn-00); /* lightest green */
+}
+
+.detailBtn:disabled {
+  background: var(--cl-02);
+  cursor: not-allowed;
+}
+
+
+/* Detailings comp css End */

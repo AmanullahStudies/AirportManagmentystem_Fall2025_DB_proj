@@ -1,0 +1,320 @@
+/* Modern Airport Management System Navbar */
+
+/* Navbar container */
+.navContainer {
+  width: 100%;
+  height: 70px;
+  background-color: #1a1a1a;
+  border-bottom: 3px solid var(--mn-00);
+  display: flex;
+  align-items: center;
+}
+
+/* Navbar */
+.navbar {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 25px;
+  gap: 20px;
+}
+
+/* Left Section - Logo */
+.leftSection {
+  flex: 0 0 auto;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  height: 50px;
+  padding: 0 15px;
+  border-right: 2px solid var(--mn-00);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.logo:hover {
+  opacity: 0.8;
+  transform: scale(1.05);
+}
+
+.logoImage {
+  height: 40px;
+  width: auto;
+  filter: brightness(1.1);
+}
+
+/* Middle Section - Nav Links */
+.middleSection {
+  flex: 1;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.navList {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 5px;
+  align-items: center;
+}
+
+.navItem {
+  position: relative;
+}
+
+.navLink {
+  display: block;
+  padding: 8px 16px;
+  color: var(--cl-00);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  white-space: nowrap;
+  cursor: pointer;
+  border: 1px solid transparent;
+  border-radius: 3px;
+  transition: all 0.25s ease;
+  position: relative;
+}
+
+.navLink::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--mn-00);
+  transition: width 0.3s ease;
+}
+
+.navLink:hover {
+  border-bottom: 2px solid var(--mn-00);
+  color: var(--mn-00);
+}
+
+.navLink:hover::before {
+  width: 100%;
+}
+
+/* Dropdown styles */
+.dropdown {
+  position: relative;
+}
+
+.dropdownBtn {
+  background: transparent;
+  border: 1px solid transparent;
+  color: var(--cl-00);
+  padding: 8px 16px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.25s ease;
+  border-radius: 3px;
+  position: relative;
+}
+
+.dropdownBtn::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--mn-00);
+  transition: width 0.3s ease;
+}
+
+.dropdownBtn:hover {
+  color: var(--mn-00);
+  border-bottom: 2px solid var(--mn-00);
+}
+
+.dropdownBtn:hover::before {
+  width: 100%;
+}
+
+.dropdownContent {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  background: #1a1a1a;
+  border: 2px solid var(--mn-00);
+  border-radius: 6px;
+  min-width: 200px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
+  z-index: 1000;
+  overflow: visible;
+  animation: slideDown 0.2s ease;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.dropdownLink {
+  display: block;
+  padding: 12px 16px;
+  color: var(--cl-00);
+  text-decoration: none;
+  border-left: 3px solid transparent;
+  transition: all 0.2s ease;
+  font-size: 13px;
+}
+
+.dropdownLink:hover {
+  border-left: 3px solid var(--mn-00);
+  padding-left: 20px;
+  color: var(--mn-00);
+}
+
+/* Right Section - Search and Settings */
+.rightSection {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.searchBar {
+  display: flex;
+  align-items: center;
+  border: 1px solid var(--mn-00);
+  border-radius: 4px;
+  padding: 0 12px;
+  background: transparent;
+  transition: all 0.25s ease;
+  height: 36px;
+}
+
+.searchBar:hover {
+  box-shadow: inset 0 0 8px rgba(148, 250, 152, 0.2);
+}
+
+.searchBar:focus-within {
+  box-shadow: 0 0 12px rgba(148, 250, 152, 0.3), inset 0 0 8px rgba(148, 250, 152, 0.1);
+}
+
+.searchInput {
+  flex: 1;
+  background: transparent;
+  border: none;
+  color: var(--cl-00);
+  font-size: 13px;
+  outline: none;
+  padding: 0 8px;
+  font-family: 'Ubuntu', sans-serif;
+}
+
+.searchInput::placeholder {
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.searchIcon {
+  color: var(--mn-00);
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.2s ease;
+}
+
+.searchIcon:hover {
+  transform: scale(1.2);
+}
+
+.settingsIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border: 1px solid var(--mn-00);
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.settingsIcon:hover {
+  background: rgba(148, 250, 152, 0.1);
+  box-shadow: 0 0 8px rgba(148, 250, 152, 0.3);
+}
+
+.icon {
+  color: var(--mn-00);
+  font-size: 16px;
+  transition: all 0.2s ease;
+}
+
+.settingsIcon:hover .icon {
+  transform: rotate(20deg);
+  color: var(--mn-00);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .navbar {
+    padding: 0 15px;
+    gap: 15px;
+  }
+
+  .navLink {
+    padding: 6px 12px;
+    font-size: 12px;
+  }
+
+  .dropdownBtn {
+    padding: 6px 12px;
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 768px) {
+  .navContainer {
+    height: 60px;
+  }
+
+  .middleSection {
+    display: none;
+  }
+
+  .navbar {
+    padding: 0 12px;
+  }
+
+  .logo {
+    height: 40px;
+    padding: 0 10px;
+  }
+
+  .logoImage {
+    height: 32px;
+  }
+
+  .searchBar {
+    height: 32px;
+    width: 150px;
+  }
+
+  .searchInput {
+    font-size: 12px;
+  }
+
+  .settingsIcon {
+    width: 32px;
+    height: 32px;
+  }
+}

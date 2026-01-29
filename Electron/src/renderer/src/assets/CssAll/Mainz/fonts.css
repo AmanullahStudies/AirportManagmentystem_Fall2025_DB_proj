@@ -1,0 +1,55 @@
+/* Smooch sans */
+@font-face {
+  font-family: 'SmoochVar';
+  src: url(../../Fonts/Smooch/sm.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'SmoochB';
+  src: url(../../Fonts/Smooch/static/SmoochSans-Bold.ttf) format('truetype');
+}
+
+/* Ubuntu Family */
+@font-face {
+  font-family: 'UbuntuR';
+  src: url(../../Fonts/Ubuntu/Ubuntu-Regular.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'UbuntuB';
+  src: url(../../Fonts/Ubuntu/Ubuntu-Bold.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'UbuntuI';
+  src: url(../../Fonts/Ubuntu/Ubuntu-Italic.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'UbuntuBI';
+  src: url(../../Fonts/Ubuntu/Ubuntu-BoldItalic.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'UbuntuL';
+  src: url(../../Fonts/Ubuntu/Ubuntu-Light.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'UbuntuLI';
+  src: url(../../Fonts/Ubuntu/Ubuntu-LightItalic.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'UbuntuM';
+  src: url(../../Fonts/Ubuntu/Ubuntu-Medium.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'UbuntuMI';
+  src: url(../../Fonts/Ubuntu/Ubuntu-MediumItalic.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'GulzarR';
+  src: url(../../Fonts/Gulzar//Gulzar-Regular.ttf) format('truetype');
+}

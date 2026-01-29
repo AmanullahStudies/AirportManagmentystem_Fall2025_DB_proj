@@ -1,0 +1,338 @@
+/* Enhanced edge detection */
+.edgeTrigger {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 30px; /* Increased area */
+  height: calc(100vh - 60px); /* Account for navbar */
+  z-index: 1000;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.edgeTrigger:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+/* Enhanced sidebar with rounded corners */
+.sidebar {
+  font-family: 'UbuntuM', sans-serif; /* Medium as default */
+  position: fixed;
+  left: -300px;
+  top: 60px; /* Below navbar */
+  height: calc(100vh - 60px);
+  width: 300px;
+  background: linear-gradient(135deg, var(--mn-00) 0%, var(--mn-01) 100%);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 1001;
+  box-shadow: 4px 0 15px rgba(0, 0, 0, 0.15);
+  border-radius: 0 15px 15px 0;
+  border-right: 2px solid var(--mn-03);
+  transform: translateX(-100%);
+}
+
+.sidebar.active {
+  transform: translateX(0);
+  left: 0;
+}
+
+/* Windows 7-style animation */
+.sidebar::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to right, rgba(255, 255, 255, 0.15) 0%, transparent 100%);
+  pointer-events: none;
+  border-radius: 0 15px 15px 0;
+}
+
+/* Enhanced close buttons */
+.closeBtnTop {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: var(--mn-03);
+  border: none;
+  color: var(--cl-00);
+  cursor: pointer;
+  font-size: 1.2rem;
+  padding: 8px;
+  border-radius: 50%;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.closeBtnTop:hover {
+  background: var(--mn-04);
+  transform: rotate(90deg);
+}
+
+.closeBtnBottom {
+    font-family: 'UbuntuB', sans-serif; /* Bold for titles */
+
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  background: var(--mn-03);
+  border: none;
+  color: var(--cl-00);
+  cursor: pointer;
+  padding: 10px 15px;
+  border-radius: 25px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.2s ease;
+}
+
+.closeBtnBottom:hover {
+    font-family: 'UbuntuMI', sans-serif; /* Bold for titles */
+
+  background: var(--mn-04);
+  padding: 10px 20px;
+}
+
+/* Enhanced content area */
+.content {
+  padding: 25px;
+  height: calc(100% - 120px);
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  margin-bottom: 25px;
+}
+
+.title {
+    font-family: 'UbuntuB', sans-serif; /* Bold for titles */
+  color: var(--mn-04);
+  font-size: 1.8rem;
+  margin: 0 0 10px 0;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
+}
+
+.separator {
+  height: 2px;
+  background: linear-gradient(to right, var(--mn-03) 0%, transparent 100%);
+  margin: 10px 0;
+}
+
+/* Enhanced menu items */
+.mainMenu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  flex-grow: 1;
+}
+
+.menuItem {
+  font-family: 'UbuntuR', serif;
+  padding: 15px;
+  margin: 8px 0;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  transition: all 0.2s ease;
+  background: rgba(56, 206, 19, 0.356);
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  color: var(--cl-04);
+}
+
+.menuItem:hover {
+  font-family: 'UbuntuB', serif;
+  background: var(--mn-01);
+  transform: translateX(5px);
+}
+
+.menuItem:hover::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 3px;
+  background: var(--mn-04);
+}
+
+.menuIcon {
+  font-size: 1.2rem;
+  color: var(--mn-04);
+}
+
+/* Quick actions row */
+.quickActions {
+  display: flex;
+  gap: 15px;
+  padding: 20px 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  margin-top: auto;
+}
+
+.quickActionBtn {
+  background: var(--mn-03);
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--cl-00);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.quickActionBtn:hover {
+  background: var(--mn-04);
+  transform: scale(1.1);
+}
+
+/* Enhanced toggle button */
+.toggleButton {
+    font-family: 'UbuntuR', sans-serif; /* Bold for titles */
+
+  position: fixed;
+  left: 20px;
+  bottom: 30px;
+  background: var(--mn-04);
+  color: var(--cl-00);
+  border: none;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 999;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+.toggleButton:hover {
+  transform: scale(1.1) rotate(90deg);
+  background: var(--mn-03);
+}
+
+.toggleIcon {
+  transition: transform 0.3s ease;
+}
+
+/* Responsive adjustments */
+@media (max-width: 750px) {
+  .sidebar {
+    top: 0;
+    height: 100vh;
+  }
+
+  .edgeTrigger {
+    height: 100vh;
+  }
+
+  .toggleButton {
+    bottom: 20px;
+    left: 10px;
+  }
+}
+@media (max-width: 450px) {
+  .sidebar {
+    width: 90vw;
+    left: -90vw;
+    border-radius: 0 12px 12px 0;
+  }
+
+  .sidebar.active {
+    left: 0;
+  }
+
+  .title {
+    font-size: 1.4rem;
+    margin-bottom: 8px;
+  }
+
+  .menuItem {
+    padding: 12px;
+    font-size: 0.9rem;
+  }
+
+  .menuItem span {
+    font-size: 0.95rem;
+  }
+
+  .menuIcon {
+    font-size: 1rem;
+  }
+
+  .closeBtnTop {
+    top: 10px;
+    right: 10px;
+    padding: 6px;
+    font-size: 1rem;
+  }
+
+  .closeBtnBottom {
+    bottom: 15px;
+    left: 15px;
+    padding: 8px 12px;
+    font-size: 0.9rem;
+  }
+
+  .quickActionBtn {
+    width: 35px;
+    height: 35px;
+    font-size: 0.9rem;
+  }
+
+  .toggleButton {
+    width: 40px;
+    height: 40px;
+    left: 5px;
+    bottom: 15px;
+  }
+
+  .content {
+    padding: 20px 15px;
+  }
+
+  .mainMenu {
+    gap: 10px;
+  }
+
+  .menuItem:hover {
+    transform: translateX(3px);
+  }
+}
+@media (max-width: 350px) {
+  .title {
+    font-size: 1.2rem;
+  }
+
+  .menuItem span {
+    font-size: 0.85rem;
+  }
+
+  .menuIcon {
+    font-size: 0.9rem;
+  }
+
+  .closeBtnBottom span {
+    display: none; /* Hide text on very small screens */
+  }
+
+  .closeBtnBottom {
+    padding: 8px;
+    border-radius: 50%;
+  }
+
+  .quickActions {
+    gap: 10px;
+    padding: 15px 0;
+  }
+}
